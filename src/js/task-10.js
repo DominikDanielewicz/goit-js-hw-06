@@ -11,13 +11,20 @@ const boxedArea = document.querySelector("#boxes");
 
 function createBoxes(ammount) {
   ammount = elementsCount.value;
+  let ElementSize = 30;
+
+  if (boxedArea.hasChildNodes()) {
+    ElementSize = boxedArea.lastElementChild.clientWidth + 10;
+  } else {
+    ElementSize;
+  }
+
   for (let i = 0; i < ammount; i++) {
-    boxedArea.insertAdjacentHTML(
-      "beforeend",
-      `<div style='background-color: ${getRandomHexColor()}; width: ${
-        30 + i * 10
-      }px; height: ${30 + i * 10}px'></div>`
-    );
+    const box = document.createElement("div");
+    boxedArea.append(box);
+    box.style.backgroundColor = getRandomHexColor();
+    box.style.width = `${ElementSize + i * 10}px`;
+    box.style.height = `${ElementSize + i * 10}px`;
   }
 }
 

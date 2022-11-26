@@ -8,7 +8,7 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (emailInput.value === "" || passwordInput.value === "") {
-    alert(
+    return alert(
       `Wszytskie pola muszą być uzupełnione! Sprawdź je ponownie przed wysłaniem.`
     );
   } else {
